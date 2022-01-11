@@ -32,4 +32,6 @@ defmodule Algo.BubbleSortTest do
   end
 
   # TODO: add perf test (in 1 file for all sorts?)
+  # TODO: worth a tail-recursive variant?
+  # TODO: check published bubble sorts
 end
