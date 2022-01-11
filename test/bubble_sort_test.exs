@@ -1,6 +1,7 @@
 defmodule Algo.BubbleSortTest do
   use ExUnit.Case, async: true
   alias Algo.BubbleSort, as: B
+  alias Algo.BubbleAlt, as: A
 
   test "empty list" do
     assert B.bsort([]) == []
@@ -31,7 +32,4 @@ defmodule Algo.BubbleSortTest do
     assert B.bsort(unsorted) == sorted
   end
 
-  # TODO: add perf test (in 1 file for all sorts?)
-  # TODO: worth a tail-recursive variant?
-  # TODO: check published bubble sorts
 end

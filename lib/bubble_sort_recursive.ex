@@ -1,20 +1,10 @@
 defmodule Algo.BubbleSort do
-  defp bsort_r(el, [first | rest]) do
-    case el > first do
-      false -> [el | bsort_r(first, rest)]
-      true -> [first | bsort_r(el, rest)]
-    end
+  def bsort(list) do
+    processed = bsort_r(list)
+    if list == processed, do: processed, else: bsort(processed)
   end
 
-  defp bsort_r(el, []) do
-    [el]
-  end
-
-  def bsort([first | rest] = list) do
-    passed = bsort_r(first, rest)
-    if list == passed, do: passed, else: bsort(passed)
-  end
-  def bsort([]) do
-    []
-  end
+  defp bsort_r([x, y | rest]) when x > y, do: [y | bsort_r([x | rest])]
+  defp bsort_r([x, y | rest]), do: [x | bsort_r([y | rest])]
+  defp bsort_r(list), do: list
 end
