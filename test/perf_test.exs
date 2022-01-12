@@ -1,7 +1,11 @@
+# here's one way to parameterise tests if req'd:
+# https://gist.github.com/thiagoa/247b625fa0883346ed78ed2f425473bb
+
 defmodule Algo.BubbleSortPerfTests do
   use ExUnit.Case, async: true
   alias Algo.BubbleSort, as: B
   alias Algo.BubbleAlt, as: A
+  alias Algo.SelectionSort, as: S
   @moduletag :perf
 
   test "all sorts" do
@@ -11,6 +15,10 @@ defmodule Algo.BubbleSortPerfTests do
     Benchee.run(%{
       "bubble_sort" => fn ->
         sorted = B.bsort(shuffled)
+        assert sorted == original
+      end,
+      "selection_sort" => fn ->
+        sorted = S.sort(shuffled)
         assert sorted == original
       end
     })

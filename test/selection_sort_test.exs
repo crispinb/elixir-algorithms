@@ -1,31 +1,32 @@
-defmodule Algo.BubbleSortTest do
+defmodule Algo.SelectionSortTest do
   use ExUnit.Case, async: true
-  alias Algo.BubbleSort, as: B
-  alias Algo.BubbleAlt, as: A
+  # alias Algo.SelectionSort, as: S
+  # TODO: come up with a way to swap algos in and out for testing
+  alias Algo.SelectionSortReduce, as: S
 
   test "empty list" do
-    assert B.bsort([]) == []
+    assert S.sort([]) == []
   end
 
   test "one element list" do
-    assert B.bsort([1]) == [1]
+    assert S.sort([1]) == [1]
   end
 
   test "presorted list" do
-    assert B.bsort([1, 2, 3]) == [1, 2, 3]
+    assert S.sort([1, 2, 3]) == [1, 2, 3]
   end
 
   test "unsorted list" do
-    assert B.bsort([3, 2, 1]) == [1, 2, 3]
+    assert S.sort([3, 2, 1]) == [1, 2, 3]
   end
 
   test "unsorted list w/ repeats" do
-    assert B.bsort([3, 2, 1, 2]) == [1, 2, 2, 3]
+    assert S.sort([3, 2, 1, 2]) == [1, 2, 2, 3]
   end
 
   test "large presorted list" do
     list = Enum.to_list(1..1000)
-    assert B.bsort(list) == list
+    assert S.sort(list) == list
   end
 
   # bsort predictably too slow to make list too big
@@ -33,7 +34,7 @@ defmodule Algo.BubbleSortTest do
     sorted = Enum.to_list(1..1000)
     unsorted = Enum.shuffle(sorted)
 
-    assert B.bsort(unsorted) == sorted
+    assert S.sort(unsorted) == sorted
   end
 
 end
