@@ -6,6 +6,7 @@ defmodule Algo.BubbleSortPerfTests do
   alias Algo.BubbleSort, as: B
   alias Algo.BubbleAlt, as: A
   alias Algo.SelectionSort, as: S
+  alias Algo.InsertionSort, as: I
   @moduletag :perf
 
   test "all sorts" do
@@ -19,6 +20,10 @@ defmodule Algo.BubbleSortPerfTests do
       end,
       "selection_sort" => fn ->
         sorted = S.sort(shuffled)
+        assert sorted == original
+      end,
+      "insertion_sort" => fn ->
+        sorted = I.sort(shuffled)
         assert sorted == original
       end
     })

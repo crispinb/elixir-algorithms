@@ -1,6 +1,6 @@
-defmodule Algo.SelectionSortTest do
+defmodule Algo.InsertionSortTest do
   use ExUnit.Case, async: true
-  alias Algo.SelectionSort, as: S
+  alias Algo.InsertionSort, as: S
 
   test "empty list" do
     assert S.sort([]) == []
