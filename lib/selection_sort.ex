@@ -1,7 +1,12 @@
 defmodule Algo.SelectionSort do
+  @behaviour Algo.Sorter
   # enum
   # comprehension
 
+  @impl Algo.Sorter
+  def name, do: "Selection Sort"
+
+  @impl Algo.Sorter
   def sort(list) when is_list(list) do
     sort_recur(list, [])
   end

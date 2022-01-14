@@ -1,4 +1,10 @@
 defmodule Algo.InsertionSort do
+  @behaviour Algo.Sorter
+
+  @impl Algo.Sorter
+  def name(), do: "Insertion Sort"
+
+  @impl Algo.Sorter
   def sort(list) when is_list(list) do
     sort_impl(list, [])
   end

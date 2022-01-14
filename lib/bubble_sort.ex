@@ -1,7 +1,13 @@
 defmodule Algo.BubbleSort do
-  def bsort(list) do
+  @behaviour Algo.Sorter
+
+  @impl Algo.Sorter
+  def name(), do: "Bubble Sort"
+
+  @impl Algo.Sorter
+  def sort(list) do
     processed = bsort_r(list)
-    if list == processed, do: processed, else: bsort(processed)
+    if list == processed, do: processed, else: sort(processed)
   end
 
   defp bsort_r([x, y | rest]) when x > y, do: [y | bsort_r([x | rest])]
