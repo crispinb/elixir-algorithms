@@ -1,5 +1,5 @@
 defmodule Algo.BubbleSortPerfTests do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   @moduletag :perf
 
   setup do
